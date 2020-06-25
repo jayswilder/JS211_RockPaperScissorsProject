@@ -14,6 +14,50 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
+  if (hand1.toLowerCase() === hand2.toLowerCase()) {
+
+    return "It's a tie!"
+  
+  } else if (hand1.toLowerCase() == 'paper' && hand2.toLowerCase() == 'rock') {
+  
+    return "Hand one wins!"
+
+  } else if (hand1.toLowerCase() == 'rock' && hand2.toLowerCase() == 'scissors') {
+
+    return "Hand one wins!"
+
+  } else if (hand1.toLowerCase() == 'scissors' && hand2.toLowerCase() == "paper") {
+
+    return "Hand one wins!"
+
+  } else if (hand2.toLowerCase() == 'paper' && hand1.toLowerCase() == 'rock') {
+  
+    return "Hand two wins!"
+
+  } else if (hand2.toLowerCase() == 'rock' && hand1.toLowerCase() == 'scissors') {
+
+    return "Hand two wins!"
+
+  } else if (hand2.toLowerCase() == 'scissors' && hand1.toLowerCase() == "paper") {
+
+    return "Hand two wins!"
+
+  // } else if (hand1 != 'rock' || 'paper' || 'scissors') {
+
+  //   return "Invalid entry from hand1! Please choose 'rock', 'paper', or 'scissors'."
+
+  // } else if (hand2 != 'rock' || 'paper' || 'scissors') {
+
+  //   return "Invalid entry from hand2! Please choose 'rock', 'paper', or 'scissors'."
+
+  } else if (hand1.toLowerCase() != 'rock' || 'paper' || 'scissors' && hand2.toLowerCase() != 'rock' || 'paper' || 'scissors') {
+
+    return "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'."
+
+  }
+  
+  
+
   // Write code here
   // Use the unit test to see what is expected
 
