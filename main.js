@@ -14,43 +14,35 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
-  if (hand1.toLowerCase() === hand2.toLowerCase()) {
+  if (hand1.toLowerCase().trim(" ") === hand2.toLowerCase().trim(" ")) {
 
     return "It's a tie!"
   
-  } else if (hand1.toLowerCase() == 'paper' && hand2.toLowerCase() == 'rock') {
+  } else if (hand1.toLowerCase().trim(" ") == 'paper' && hand2.toLowerCase().trim(" ") == 'rock') {
   
     return "Hand one wins!"
 
-  } else if (hand1.toLowerCase() == 'rock' && hand2.toLowerCase() == 'scissors') {
+  } else if (hand1.toLowerCase().trim(" ") == 'rock' && hand2.toLowerCase().trim(" ") == 'scissors') {
 
     return "Hand one wins!"
 
-  } else if (hand1.toLowerCase() == 'scissors' && hand2.toLowerCase() == "paper") {
+  } else if (hand1.toLowerCase().trim(" ") == 'scissors' && hand2.toLowerCase().trim(" ") == "paper") {
 
     return "Hand one wins!"
 
-  } else if (hand2.toLowerCase() == 'paper' && hand1.toLowerCase() == 'rock') {
+  } else if (hand2.toLowerCase().trim(" ") == 'paper' && hand1.toLowerCase().trim(" ") == 'rock') {
   
     return "Hand two wins!"
 
-  } else if (hand2.toLowerCase() == 'rock' && hand1.toLowerCase() == 'scissors') {
+  } else if (hand2.toLowerCase().trim(" ") == 'rock' && hand1.toLowerCase().trim(" ") == 'scissors') {
 
     return "Hand two wins!"
 
-  } else if (hand2.toLowerCase() == 'scissors' && hand1.toLowerCase() == "paper") {
+  } else if (hand2.toLowerCase().trim(" ") == 'scissors' && hand1.toLowerCase().trim(" ") == "paper") {
 
     return "Hand two wins!"
 
-  // } else if (hand1 != 'rock' || 'paper' || 'scissors') {
-
-  //   return "Invalid entry from hand1! Please choose 'rock', 'paper', or 'scissors'."
-
-  // } else if (hand2 != 'rock' || 'paper' || 'scissors') {
-
-  //   return "Invalid entry from hand2! Please choose 'rock', 'paper', or 'scissors'."
-
-  } else if (hand1.toLowerCase() != 'rock' || 'paper' || 'scissors' && hand2.toLowerCase() != 'rock' || 'paper' || 'scissors') {
+  } else if (hand1.toLowerCase().trim(" ") != 'rock' || 'paper' || 'scissors' && hand2.toLowerCase().trim(" ") != 'rock' || 'paper' || 'scissors') {
 
     return "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'."
 
@@ -96,6 +88,14 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+    });
+    it('should detect if input is invalid', () => {
+      assert.equal(rockPaperScissors('rock', 'banana'), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
+      assert.equal(rockPaperScissors('paper', ' '), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
+      assert.equal(rockPaperScissors('scissors', 'strawberry'), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
+      assert.equal(rockPaperScissors('cold', 'rock'), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
+      assert.equal(rockPaperScissors('hot', 'paper'), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
+      assert.equal(rockPaperScissors(' ', 'scissors'), "Invalid entry has been made! Please choose 'rock', 'paper', or 'scissors'.");
     });
   });
 } else {
